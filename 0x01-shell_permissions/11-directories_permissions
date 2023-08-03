@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod -R 
+find . -type d -exec chmod 755 {} +
