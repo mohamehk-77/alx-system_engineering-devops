@@ -1,0 +1,2 @@
+#!/bin/bash
+gerp root /etc/passwd
