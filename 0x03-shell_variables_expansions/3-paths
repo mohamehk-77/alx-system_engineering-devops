@@ -1,2 +1,2 @@
 #!/bin/bash
-echo There are $(wc -1) directories in the PATH
+echo $PATH | tr':'\n' | wc -1
