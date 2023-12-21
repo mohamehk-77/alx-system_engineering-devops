@@ -7,24 +7,11 @@
 
 var=1
 
-while [ $var -le 20 ];
-  do
-    case "$var" in
-    4)
-       echo "$var"
-       echo "Bad luck from china"
-       ;;
-    9)
-       echo "$var"
-       echo "Bad luck from japan"
-       ;;
-    17)
-       echo "$var"
-       echo "bad luck from Italy"
-       ;;
-    *)
-       echo "$var"
-    ;;
+while ((var++<20)); do
+    echo $var
+    case $var in
+        4) echo "bad luck from China";;
+        9) echo "bad luck from Japan";;
+        17) echo "bad luck from Italy";;
     esac
-    ((var++))
 done
