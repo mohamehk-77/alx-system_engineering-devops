@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 times and on the 9th iteration says "Hi" on a new line
+
+var=0
+
+while [ $var -lt 10 ];
+do
+    if [ $var -eq 8 ];
+    then
+        echo "Hi"
+    else
+        echo "Best School"
+    fi
+    ((var++))
+done
