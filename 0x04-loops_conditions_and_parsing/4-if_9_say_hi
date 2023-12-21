@@ -3,9 +3,9 @@
 
 var=0
 
-while [ $var -lt 10 ];
+while [ $var -lt 11 ];
 do
-    if [ $var -eq 8 ];
+    if [ $var -eq 9 ];
     then
         echo "Hi"
     else
