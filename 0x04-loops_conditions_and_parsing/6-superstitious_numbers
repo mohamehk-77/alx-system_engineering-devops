@@ -7,7 +7,7 @@
 
 var=0
 
-while [ $var -le 20 ];
+while ((counter++<20));
   do
     case "$var" in
     4)
@@ -26,5 +26,4 @@ while [ $var -le 20 ];
        echo "$var"
     ;;
     esac
-    ((var++))
 done
