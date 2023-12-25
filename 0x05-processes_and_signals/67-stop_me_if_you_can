@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Script kills another script running in another terminal (need -f to find pid)
 
-kill -9 -1 "7-highlander"
+kill -9 "$(pgrep -f highlander)"
