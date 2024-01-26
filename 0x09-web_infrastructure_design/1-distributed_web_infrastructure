@@ -1,0 +1,45 @@
+\\wsl.localhost\Ubuntu-20.04\home\hamo\alx-system_engineering-devops\0x09-web_infrastructure_design\1-distributed_web_infrastructure
+
+https://app.eraser.io/workspace/QpI8xshGZWpNtjBNr6Pm
+
+
+Simple web stack:
+Problem
+Background
+Where is the www.foobar.com going to? 
+The Problem
+What is the Server?
+
+A server is a computer or system that provides resources, data, services, or programs to other computers, known as clients, over a network. In theory, whenever computers share resources with client machines they are considered servers. 
+
+What is the role of the domain name?
+
+The domain name serves as a human-friendly alias for the IP address of the server. It’s used to identify one or more IP addresses. For example, the domain name foobar.com  represents about a dozen IP addresses.
+
+What type of DNS record www is in www.foobar.com?
+
+"www"  is a type of DNS record known as a CNAME (Canonical Name). CNAME records can be used to alias one name to another. In this case, www.foobar.com  is an alias for foobar.com .
+
+What is the role of the web server?
+
+The web server’s role is to accept and process requests for web pages from users’ browsers, and deliver the requested web page to the user’s browser.
+
+What is the role of the application server?
+
+The application server runs your server-side code. It reads the code, interprets it, performs the operations that the code specifies, and sends the resulting data back to the web server, which then sends it to the client.
+
+What is the role of the database?
+
+The database stores all the data that your website needs to function. This could include user data, content for your site, etc. The application server will often retrieve data from the database as part of processing the code it receives.
+
+What Is The Application Files (Code Base)?
+
+These are the actual files that make up your website. They include all the HTML, CSS, JavaScript, images, and any other assets that your website needs to function.
+
+What is the server using to communicate with the computer of the user requesting the website?
+
+The server communicates with the user’s computer using the HTTP (Hypertext Transfer Protocol) or HTTPS (HTTP Secure) protocols. However, there are some potential issues with this infrastructure:
+
+Single Point of Failure (SPOF): Since everything is hosted on a single server, if that server goes down, the entire website goes down.
+Downtime during Maintenance: If you need to deploy new code or perform other maintenance tasks, you may need to restart the web server, causing downtime.
+Lack of Scalability: If your website receives a lot of traffic, a single server may not be able to handle all the requests. This infrastructure doesn’t easily allow for scaling up by adding more servers.
