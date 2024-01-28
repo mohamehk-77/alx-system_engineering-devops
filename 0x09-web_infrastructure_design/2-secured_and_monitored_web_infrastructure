@@ -1,0 +1,39 @@
+<https://app.eraser.io/workspace/jmAssIoDSEjWU9oSoy5h?origin=share>
+
+**why are you adding additional element?**
+
+**_Firewalls:_** Firewalls are added to provide a layer of security by monitoring and controlling incoming and outgoing network traffic based on predetermined security rules.
+
+_**SSL Certificate:**_ An SSL certificate is added to enable HTTPS for the website, which encrypts the traffic between the server and the client, protecting sensitive data from being intercepted.
+
+_**Monitoring Clients:**_ Monitoring clients are added to collect data about the system's performance, which helps in identifying potential issues before they affect the users.
+
+**What are firewalls for?**
+
+Firewalls provide network security by filtering incoming and outgoing network traffic based on a set of user-defined rules
+
+**Why is the traffic served over HTTPS?**
+
+Traffic is served over HTTPS to protect the data transmitted between the server and the client, it prevents attackers from eavesdropping or tampering with the data being sent.
+
+**What monitoring is used for?**
+
+Monitoring is used to collect and analyze data about the system’s performance, it helps in identifying potential issues, understanding system usage and planning for future growth.
+
+**How the monitoring tool is collecting data?**
+
+Monitoring tools collect data by continuously checking the system's parameters, such as CPU usage, memory usage, network traffic, etc., and recording the results for later analysis.  
+
+**what to do if you want to monitor your web server QPS?**
+
+To monitor your web server's QPS, you can use monitoring tools that provide this feature, These tools collect data about the number of queries received by the server per second and present it in readable format.
+
+**What are the issues with this infrastructure?**
+
+_**Terminating SSL at the load balancer level:**_ This could potentially expose unencrypted traffic within the internal network if the internal network is compromised.
+
+_**Having only one MySQL server capable of accepting writes**__:_ This could lead to a single point of failure, If MySQL server goes down, the entire application would be affected.
+
+_**Having servers with all the same components (database, web server, and application server)**__:_
+
+This could lead to inefficient resource usage as each server might not be fully utilized, It also increase the risk as compromise of one server could potentially affect all components.

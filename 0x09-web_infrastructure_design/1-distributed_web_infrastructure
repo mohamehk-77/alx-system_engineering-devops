@@ -1,45 +1,31 @@
-\\wsl.localhost\Ubuntu-20.04\home\hamo\alx-system_engineering-devops\0x09-web_infrastructure_design\1-distributed_web_infrastructure
+<https://app.eraser.io/workspace/COQ5XWAI6r76307Bhd99?origin=share>
 
-https://app.eraser.io/workspace/QpI8xshGZWpNtjBNr6Pm
+Distributed web infrastructure:
 
+**Problem:**
 
-Simple web stack:
-Problem
-Background
-Where is the www.foobar.com going to? 
-The Problem
-What is the Server?
+**For every additional element, why you are adding it?**
 
-A server is a computer or system that provides resources, data, services, or programs to other computers, known as clients, over a network. In theory, whenever computers share resources with client machines they are considered servers. 
+We add two more servers to distribute the load and reduce the risk of a single point of failure. If one server fails, the other servers can continue to handle requests.
 
-What is the role of the domain name?
+**What distribution algorithm your load balancer is configured with and how it works?**
 
-The domain name serves as a human-friendly alias for the IP address of the server. It’s used to identify one or more IP addresses. For example, the domain name foobar.com  represents about a dozen IP addresses.
+The load balancer distributes incoming network traffic across multiple servers to ensure no single server bears too much demand. This improves responsiveness and availability of applications. The load balancer could be configured with a round-robin distribution algorithm, which cycles through servers in order, distributing each new request to the next server in the list.
 
-What type of DNS record www is in www.foobar.com?
+**Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both?**
 
-"www"  is a type of DNS record known as a CNAME (Canonical Name). CNAME records can be used to alias one name to another. In this case, www.foobar.com  is an alias for foobar.com .
+In an Active-Active setup, all servers are running and handling requests simultaneously. In an Active-Passive setup, the passive server only starts handling requests if the active server fails. Our setup is Active-Active, as it allows for load balancing and better use of resources.
 
-What is the role of the web server?
+**How a database Primary-Replica (Master-Slave) cluster works?**
 
-The web server’s role is to accept and process requests for web pages from users’ browsers, and deliver the requested web page to the user’s browser.
+In this setup, the primary (master) database handles all write operations and can handle read operations. The replica (slave) databases are read-only and replicate the primary database. If the primary fails, one of the replicas can be promoted to primary.
 
-What is the role of the application server?
+**What is the difference between the Primary node and the Replica node in regard to the application?**
 
-The application server runs your server-side code. It reads the code, interprets it, performs the operations that the code specifies, and sends the resulting data back to the web server, which then sends it to the client.
+he primary node handles write operations and can handle read operations. The replica nodes are read-only and replicate the data from the primary node. This separation allows for load balancing of read requests, backup, and redundancy.
 
-What is the role of the database?
+**But there are potential issues with this infrastructure:**
 
-The database stores all the data that your website needs to function. This could include user data, content for your site, etc. The application server will often retrieve data from the database as part of processing the code it receives.
-
-What Is The Application Files (Code Base)?
-
-These are the actual files that make up your website. They include all the HTML, CSS, JavaScript, images, and any other assets that your website needs to function.
-
-What is the server using to communicate with the computer of the user requesting the website?
-
-The server communicates with the user’s computer using the HTTP (Hypertext Transfer Protocol) or HTTPS (HTTP Secure) protocols. However, there are some potential issues with this infrastructure:
-
-Single Point of Failure (SPOF): Since everything is hosted on a single server, if that server goes down, the entire website goes down.
-Downtime during Maintenance: If you need to deploy new code or perform other maintenance tasks, you may need to restart the web server, causing downtime.
-Lack of Scalability: If your website receives a lot of traffic, a single server may not be able to handle all the requests. This infrastructure doesn’t easily allow for scaling up by adding more servers.
+- **Single Point of Failure (SPOF)**: While we have reduced the risk, the load balancer itself can be a single point of failure. To mitigate this, a second load balancer can be used.
+- **Security Issues**: Without a firewall or HTTPS, the servers and data transmitted could be vulnerable to attacks. A firewall can help block malicious traffic, and HTTPS encrypts data in transit to protect it from being intercepted.
+- **No Monitoring**: Without monitoring, it’s difficult to identify and troubleshoot issues promptly. Monitoring tools can provide insights into traffic patterns, server health, and more.
