@@ -1,0 +1,9 @@
+frontend haproxy-config
+        bind *:80
+        bind *:443 ssl crt /etc/haproxy/certs/www.magedsaif.tech.pem
+        redirect scheme https code 301 if !{ ssl_fc }
+        default_backend backend-config
+backend backend-config
+        balance roundrobin
+        server 388481-web-01 100.26.174.108:80 check
+        server 388481-web-02 100.26.241.106:80 check
