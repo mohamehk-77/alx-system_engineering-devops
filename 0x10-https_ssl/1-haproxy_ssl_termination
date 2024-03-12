@@ -35,20 +35,19 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend thefooclub-frontend
+frontend hamoalgamed-frontend
         bind *:80
         mode http
         http-request redirect scheme https code 301 unless { ssl_fc }
         http-request set-header X_Forwarded-Proto http
         default_backend hamoalgamed-tech-backend
 
-frontend thefooclub-frontend-https
+frontend hamoalgamed-frontend-https
         bind *:443 ssl crt /etc/haproxy/certs/www.hamoalgamed.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend hamoalgamed-tech-backend
 
-backend thefooclub-tech-backend
+backend hamoalgamed-tech-backend
         balance roundrobin
         server web-01 34.227.93.184:80 check
         server web-02 18.210.13.215:80 check
-
