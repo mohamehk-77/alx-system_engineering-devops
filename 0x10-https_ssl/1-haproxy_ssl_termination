@@ -38,7 +38,7 @@ defaults
 frontend hamoalgamed-frontend
         bind *:80
         mode http
-        http-request redirect scheme https code 301 unless { ssl_fc }
+        #http-request redirect scheme https code 301 unless { ssl_fc }
         http-request set-header X_Forwarded-Proto http
         default_backend hamoalgamed-tech-backend
 
