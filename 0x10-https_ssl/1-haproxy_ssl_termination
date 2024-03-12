@@ -51,3 +51,4 @@ backend hamoalgamed-tech-backend
         balance roundrobin
         server web-01 34.227.93.184:80 check
         server web-02 18.210.13.215:80 check
+
