@@ -1,0 +1,5 @@
+#!/bin/bash
+sed -i 's/www-data/nginx/g' /etc/nginx/nginx.conf
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
+pkill apache2; sudo service nginx start
