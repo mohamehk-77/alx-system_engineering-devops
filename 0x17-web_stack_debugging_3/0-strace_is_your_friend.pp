@@ -1,10 +1,6 @@
-# Define a resource to fix the typo in wp-settings.php
+# Fix a missing file causing the 500 error
 exec { 'fix-wordpress':
-  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
+  command => 'touch /var/www/html/wp-settings.php',  # Create the missing file
   path    => '/usr/local/bin:/bin/',
-  # Run the command only if the file contains "phpp"
-  onlyif  => '/bin/grep -q "phpp" /var/www/html/wp-settings.php',
+  onlyif  => 'test ! -f /var/www/html/wp-settings.php',  # Only run if file is missing
 }
-
-# Include the class with the fix resource in your main manifest
-class { 'main': }
