@@ -1,7 +1,7 @@
 server {
     listen 80;
-    listen [::]:80 default_server;
-    server_name sarahhassan.tech;
+    listen [::]:80;
+    server_name 512846-web-01;
     location /hbnb_static {
         alias /data/web_static/current/;
     }
